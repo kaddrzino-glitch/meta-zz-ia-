@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta ZZ AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;background:#101522;color:white;
+font-family:Arial,sans-serif;
+}
+header{
+background:#192338;padding:22px;
+text-align:center;font-size:25px;
+font-weight:bold;color:#65a5ff;
+}
+main{max-width:650px;margin:auto;padding:20px}
+.welcome{text-align:center;margin:35px 0}
+.welcome h2{color:#65a5ff}
+#chat{
+height:55vh;overflow-y:auto;
+background:#192338;border-radius:15px;
+padding:15px;
+}
+.msg{
+padding:12px;margin:10px 0;
+border-radius:12px;background:#293750;
+line-height:1.6;overflow-wrap:anywhere;
+}
+.user{background:#24569b}
+form{display:flex;gap:8px;margin-top:15px}
+input{
+flex:1;min-width:0;padding:14px;
+border:0;border-radius:10px;
+font-size:16px;
+}
+button{
+background:#367df5;color:white;
+border:0;border-radius:10px;
+padding:12px 18px;font-size:16px;
+}
+footer{text-align:center;color:#8995a9;margin:25px}
+</style>
+</head>
+<body>
+<header>Meta ZZ AI</header>
+<main>
+<div class="welcome">
+<h2>مرحبا بك في Meta ZZ AI</h2>
+<p>مساعدك الذكي الشخصي</p>
+</div>
+<div id="chat">
+<div class="msg">أهلا! أنا Meta ZZ AI. كيف نقدر نساعدك اليوم؟</div>
+</div>
+<form id="form">
+<input id="message" placeholder="اكتب رسالتك هنا..." autocomplete="off">
+<button type="submit">إرسال</button>
+</form>
+</main>
+<footer>Meta ZZ AI © 2026</footer>
+<script>
+const form=document.getElementById('form');
+const input=document.getElementById('message');
+const chat=document.getElementById('chat');
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const value=input.value.trim();
+if(!value)return;
+
+const user=document.createElement('div');
+user.className='msg user';
+user.textContent=value;
+chat.appendChild(user);
+
+const bot=document.createElement('div');
+bot.className='msg';
+bot.textContent='وصلتني رسالتك! الذكاء الاصطناعي الحقيقي يحتاج ربط خدمة AI.';
+chat.appendChild(bot);
+
+input.value='';
+chat.scrollTop=chat.scrollHeight;
+});
+</script>
+</body>
+</html>
